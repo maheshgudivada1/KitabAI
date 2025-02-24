@@ -1,0 +1,80 @@
+.carousel-container1 {
+  position: relative;
+  width: 100%;
+  height: 54vh !important; /* Set height of carousel container */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Carousel styles */
+.carousel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Image styles */
+.carousel-image {
+  width: 100%; /* Reduce image width to fit inside the container */
+  height: 100%; /* Reduce image height to fit inside the container */
+  margin: auto; /* Center the image inside the container */
+  display: block; /* Ensures the image is displayed as a block element */
+}
+
+/* Dots Container styles */
+.dots-container {
+  position: absolute;
+  bottom: 30px; /* Position dots at the bottom of the carousel */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+/* Dot styles */
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(46, 43, 43, 0.7);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot.active {
+  background-color: white; /* Active dot is white */
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* Button styles (if you want to add navigation arrows, you can use these) */
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

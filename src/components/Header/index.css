@@ -1,0 +1,553 @@
+.header {
+  height: 60px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(211, 211, 211, 0.2);
+  /* Light gray semi-transparent background */
+  padding: 10px 20px;
+  backdrop-filter: blur(0px);
+  /* Initial state of the blur (no blur) */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: backdrop-filter 0.3s ease-in-out;
+  /* Smooth transition on scroll */
+  color: rgb(19, 17, 17);
+  /* Keep text color white */
+  z-index: 100;
+  /* Ensure the header is on top */
+}
+
+/* Animation for background blur effect */
+@keyframes blurEffect {
+  0% {
+    backdrop-filter: blur(0px);
+    /* No blur initially */
+  }
+
+  100% {
+    backdrop-filter: blur(10px);
+    /* Apply blur at the end */
+  }
+}
+
+/* Left side options */
+.left-options {
+  display: flex;
+  gap: 20px;
+}
+
+/* Hamburger icon (shown on mobile only) */
+.hamburger-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: black;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.mobile-menu.active {
+  display: flex;
+  /* Show when the menu is active */
+}
+
+/* Right options (hidden on mobile by default) */
+.right-options {
+  display: flex;
+  gap: 20px;
+}
+
+/* Common styles for header options */
+.option {
+  text-decoration: none;
+  color: rgb(27, 24, 24);
+  /* Updated to white */
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.option:hover {
+  color: black;
+}
+
+/* Special styling for logo */
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+
+/* Sign In button styles */
+.signin-button {
+  background-color: orange;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-right: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.signin-button:hover {
+  background-color: darkorange;
+}
+
+.option1 {
+  text-decoration: none;
+  color: rgb(45, 41, 41);
+  /* Updated to white */
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+/* Styles for small screens (mobile) */
+/* Styles for small screens (mobile) */
+@media (max-width: 768px) {
+  /* Show the hamburger icon on small screens */
+  .hamburger-icon {
+    display: block;
+    
+  }
+
+  /* Hide the right options on small screens */
+  .right-options {
+    display: none;
+  }
+
+  /* Hide the regular signin button on mobile */
+  .signin-button {
+    display: block;
+    background-color: orange;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+  }
+
+  .signin-button:hover {
+    background-color: darkorange;
+  }
+
+  /* Hide the regular sign-in links (option1) on mobile */
+  .option1 {
+    display: none;
+  }header {
+   max-width: 95%;
+  }
+}
+
+/* Styles for large screens (medium and above) */
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
+    /* Always hide mobile menu on larger screens */
+  }
+
+  .signin-button1 {
+    display: none;
+  }
+}
+
+
+/* Styles for large screens (medium and above) */
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
+    /* Always hide mobile menu on larger screens */
+  }
+
+  .signin-button1 {
+    display: none;
+  }
+}
+
+.site-logo {
+  height: 60px;
+  background-color: black;
+  width: 80px;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Style for the modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Style for the modal content */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for close button */
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Button style for Sign In */
+.signin-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Sign In button hover effect */
+.signin-button:hover {
+  background-color: #45a049;
+}
+
+/* Style for the modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Style for the modal content */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for close button */
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Button style for Sign In */
+.signin-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 7px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Sign In button hover effect */
+.signin-button:hover {
+  background-color: #45a049;
+}
+
+.logout-button {
+  background-color: #ea6a2f;
+  color: white;
+  padding: 7px 14px;
+  border-radius: 5px;
+  border: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.option {
+  padding-top: 7px;
+}
+/* General styles for the header */
+.header {
+  height: 60px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(211, 211, 211, 0.2);
+  /* Light gray semi-transparent background */
+  padding: 10px 20px;
+  backdrop-filter: blur(0px);
+  /* Initial state of the blur (no blur) */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: backdrop-filter 0.3s ease-in-out;
+  /* Smooth transition on scroll */
+  color: rgb(19, 17, 17);
+  /* Keep text color white */
+  z-index: 100;
+  /* Ensure the header is on top */
+}
+
+/* Style for the modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centering the modal content vertically */
+  z-index: 1000; /* Make sure modal appears on top of all other elements */
+  height: 100vh; /* Ensure it takes up the entire viewport height */
+  width: 100vw;  /* Ensure it takes up the entire viewport width */
+}
+
+/* Style for the modal content */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+  max-width: 90%; /* Make sure the modal doesn't stretch too wide */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Close button style */
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.header {
+  height: 60px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(211, 211, 211, 0.2); /* Light gray semi-transparent background */
+  padding: 10px 20px;
+  backdrop-filter: blur(0px); /* Initial state of the blur (no blur) */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: backdrop-filter 0.3s ease-in-out; /* Smooth transition on scroll */
+  color: rgb(19, 17, 17); /* Keep text color white */
+  z-index: 100; /* Ensure the header is on top */
+  max-width: 100%; /* Ensure the header does not exceed available width */
+  margin: 0 auto; /* Center the header if there is space */
+}
+
+/* Styles for small screens (mobile) */
+@media (max-width: 768px) {
+  /* Ensure the header takes only the available width */
+  .header {
+    padding: 10px 15px; /* Adjust padding for smaller screens */
+  }
+
+  .mobile-menu {
+    display: none;
+    /* Always hide mobile menu on larger screens */
+  }
+
+  /* Ensure other elements inside the header don't cause overflow */
+  .left-options, .right-options {
+    flex-wrap: wrap; /* Make sure options wrap within available space */
+  }
+
+  .site-logo {
+    height: 50px; /* Adjust logo size on smaller screens */
+    width: 60px;
+  }
+}
+
+/* Styles for large screens (medium and above) */
+@media (min-width: 769px) {
+  /* Prevent header from exceeding available width */
+  .header {
+    padding: 10px 20px;
+  }
+
+  .site-logo {
+    height: 60px;
+    width: 80px;
+  }
+}
+.header {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(211, 211, 211, 0.2);
+  padding: 10px 20px;
+  backdrop-filter: blur(0px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: backdrop-filter 0.3s ease-in-out;
+  z-index: 100;
+}
+
+.hamburger-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+.right-options {
+  display: flex;
+  gap: 20px;
+}
+
+.option {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+
+.signin-button {
+  background-color: orange;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.signin-button:hover {
+  background-color: darkorange;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger-icon {
+    display: block;
+    padding-right: 20px;
+  }
+
+  .right-options {
+    display: none;
+  }
+
+  .header {
+    padding: 10px;
+  }
+}

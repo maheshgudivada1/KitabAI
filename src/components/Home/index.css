@@ -1,0 +1,888 @@
+.home-page {
+  display: flex;
+  justify-content: space-between;
+  height: 500px;
+  max-width: 100%;
+  padding: 0 30px;
+  background-color: #fff;
+  flex-wrap: wrap;
+  padding-top: 110px;
+  margin-bottom: 125px;
+  border-radius: 10px;
+}
+
+.content-left,
+.content-right {
+  flex: 1;
+  padding: 20px;
+}
+
+.content-left {
+  text-align: left;
+  margin-left: 30px;
+  margin-top: 100px;
+  margin-right: 40px;
+  max-height: 400px;
+}
+
+.main-heading {
+  font-size: 30px;
+  font-weight: bold;
+  /* Bold main heading */
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.sub-heading {
+  font-size: 22px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Right Content (Mic Button) Styling */
+.content-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mic-button {
+  background-color: orange;
+  padding: 20px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.mic-button:hover {
+  background-color: #ff8c00;
+  /* Slightly darker orange */
+  transform: scale(0.7);
+  /* Slight enlargement on hover */
+}
+
+.mic-icon {
+  font-size: 60px;
+  color: white;
+  background-color: #ff8c00;
+  border-radius: 40px;
+  padding: 20px;
+  transition: color 0.3s ease;
+}
+
+.mic-button:hover .mic-icon {
+  color: #fff;
+  /* Icon changes color when hovering */
+}
+
+.click-to-speak {
+  font-size: 14px;
+  color: black;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+/* Book Filter Section */
+.book-filter-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.filter-button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.filter-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center !important;
+  align-items: center !important;
+  max-width: 100%;
+  height: auto;
+}
+
+.book-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Image on the left and content on the right for even books */
+.left-align {
+  flex-direction: row;
+}
+
+/* Image on the right and content on the left for odd books */
+.right-align {
+  flex-direction: row-reverse;
+}
+
+.book-info {
+  max-width: 600px;
+}
+
+.book-info {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+}
+
+.mic-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.mic-icon {
+  font-size: 1.5rem;
+}
+.mic-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* Center the buttons in the container */
+  gap: 20px;
+  /* Add space between the buttons */
+  align-items: center;
+}
+
+/* Responsive Design for All Screen Sizes */
+@media (max-width: 1200px) {
+  .book-card {
+    flex-direction: row;
+    text-align: center;
+  }
+
+  .book-info {
+    width: 50%;
+  }
+
+  .book-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .left-align {
+    flex-direction: row;
+  }
+
+  /* Image on the right and content on the left for odd books */
+  .right-align {
+    flex-direction: row-reverse;
+  }
+
+  .mic-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* Center the buttons in the container */
+    gap: 20px;
+    /* Add space between the buttons */
+    align-items: center;
+  }
+
+  .mic-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .mic-container {
+      flex-direction: row;
+      /* Stack buttons vertically on small screens */
+      gap: 10px;
+    }
+  }
+
+  .filter-buttons {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    height: auto;
+    width: 100%;
+    /* Full width */
+    padding: 10px 5px;
+    /* Reduced padding for smaller screens */
+  }
+
+  .carousel-slide {
+    display: flex;
+    flex-direction: row;
+    /* Stack testimonials vertically */
+    align-items: center;
+    /* Center align the testimonials */
+  }
+
+  .testimonial {
+    width: 100%;
+    /* Full width on mobile */
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 12px;
+    /* Rounded corners */
+  }
+
+  .testimonial-name,
+  .testimonial-title,
+  .testimonial-description {
+    font-size: 8px;
+  }
+  .filter-buttons {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-heading {
+    font-size: 24px;
+  }
+
+  .content-right {
+    display: none;
+  }
+  .filter-buttons {
+    max-width: 100%;
+    margin-left: 12px;
+  }
+
+  .book-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sub-heading {
+    font-size: 16px;
+  }
+
+  .publisher-title {
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
+  }
+
+  strong {
+    font-size: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+
+  .book-image img {
+    width: 105% !important;
+    max-height: 230px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+  }
+
+  .mic-button {
+    padding: 12px;
+  }
+
+  .mic-button:hover {
+    background-color: #f9f8f7;
+    /* Slightly darker orange */
+  }
+
+  .mic-icon {
+    font-size: 20px;
+  }
+
+  .filter-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .carousel-container {
+    height: 200px;
+    width: 400px;
+  }
+
+  .testimonial {
+    min-width: 250px;
+  }
+
+  .carousel-slide {
+    flex-wrap: wrap;
+  }
+
+  .book-info {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .book-title {
+    font-size: 30px;
+    width: 100%;
+  }
+
+  .book-info {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+}
+
+/* Carousel Styling */
+.carousel-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+}
+
+.carousel-track {
+  display: flex;
+  animation: scroll 20s linear infinite;
+  width: max-content;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.carousel-slide {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  animation: scroll 100s linear infinite;
+}
+
+.testimonial {
+  flex: 0 0 auto;
+  width: 16.66%;
+  box-sizing: border-box;
+  background-color: #f6f5f8;
+  padding: 20px;
+  margin: 0 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.testimonial-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 0px;
+}
+
+.testimonial-title {
+  font-size: 1.2rem;
+  color: rgb(92, 90, 90);
+  margin-bottom: 15px;
+}
+
+.testimonial-description {
+  font-size: 1rem;
+  color: black;
+  line-height: 1.5;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-40%);
+  }
+}
+
+h3 {
+  text-align: center;
+  font-size: 30px;
+}
+
+.book-image {
+  flex: 1;
+  padding: 10px;
+}
+
+.book-image img {
+  width: 55%;
+  height: 450px;
+  background-size: cover;
+  border: 1px solid gray;
+  /* Adding a gray border */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  /* Adding a subtle box shadow */
+  border-radius: 8px;
+}
+
+.home-page-container {
+  width: 100%;
+}
+
+.testimonials-container {
+  width: 100%;
+  padding: 0px;
+}
+
+h4 {
+  text-align: center;
+}
+
+.book-info h2,
+.book-info p {
+  margin: 5px 0;
+  /* Adjust margin between elements */
+  padding: 3px;
+  /* Remove padding to avoid extra space */
+}
+
+/* Mic Container Styling for All Screen Sizes */
+.mic-container {
+  display: flex;
+  flex-direction: row;
+  /* Ensure items are aligned in a row */
+  gap: 20px;
+  /* Add space between the buttons */
+  margin-top: 10px;
+}
+
+/* Mic Item Styling */
+.mic-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+/* Mic Button Styling */
+.mic-button {
+  background-color: #ff8c00;
+  padding: 0px;
+  border-radius: 50%;
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.mic-button:hover {
+  background-color: #ff8c00;
+  transform: scale(1.1);
+}
+
+.mic-icon {
+  font-size: 20px;
+  color: white;
+  padding: 20px;
+}
+
+.mic-icon1 {
+  font-size: 20px;
+  color: white;
+  padding: 20px;
+}
+
+.mic-button1 {
+  background-color: #258c20;
+  padding: 0px;
+  border-radius: 50%;
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.mic-button1:hover {
+  background-color: #12bb64;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .mic-container {
+    flex-direction: row;
+    /* Stack buttons vertically on smaller screens */
+    gap: 10px;
+    /* Reduce the gap between buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .mic-container {
+    flex-direction: row;
+    /* Stack buttons vertically on very small screens */
+    gap: 10px;
+  }
+  .publisher-title {
+    font-size: 19px;
+  }
+  .description {
+    font-size: 18px;
+  }
+  strong {
+    font-size: 17px;
+  }
+  .button {
+    font-size: 10px !important;
+  }
+  .book-image {
+    margin-left: -10px;
+  }
+
+  .mic-icon {
+    font-size: 18px;
+    padding: 15px;
+    /* Adjust the size of the icon on smaller screens */
+  }
+  .mic-icon1 {
+    font-size: 18px;
+    padding: 15px;
+  }
+  .click-button {
+    font-size: 17px;
+  }
+
+  .mic-button {
+    padding: 0px;
+    /* Reduce padding for smaller screens */
+  }
+  .content-left {
+    text-align: left;
+    margin-left: 0px;
+    margin-top: 50px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+  .book-filter-container {
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+  .home-page {
+    margin-bottom: 0px;
+    margin-top: 10px;
+    padding-top: 40px;
+  }
+}
+
+/* General Button Styles */
+.button {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 30px;
+  padding: 12px 28px;
+  border: none;
+  cursor: pointer;
+  margin: 20px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+/* SignUp Button */
+.signUp-button {
+  background: linear-gradient(45deg, #4caf50, #8bc34a);
+  color: #fff;
+  margin-right: 30px;
+}
+
+.signUp-button:hover {
+  background: linear-gradient(45deg, #8bc34a, #4caf50);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Get In Touch Button */
+.getIn-touch-button {
+  background: linear-gradient(45deg, #ff5722, #ff9800);
+  color: #fff;
+}
+
+.getIn-touch-button:hover {
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.buttons-container {
+  display: flex;
+}
+.home-page {
+  max-width: 100%;
+}
+.content-right {
+  border-radius: 10px;
+  border: solid 2px green;
+  max-height: 400px;
+}
+/* PlayStore Button Container */
+.playstore-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/* PlayStore Button */
+.playstore-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: -40px;
+  margin-left: 80px;
+}
+
+.playstore-button:focus {
+  outline: none;
+}
+
+/* PlayStore Icon */
+.playstore-icon {
+  width: 150px;
+  height: 150px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .playstore-button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .playstore-icon {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .playstore-button {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-left: -20px;
+    margin-top: -20px;
+  }
+
+  .playstore-icon {
+    width: 120px;
+    height: 120px;
+  }
+  .button {
+    width: 100px;
+    padding: 10px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .signUp-button {
+    margin: 10px;
+    padding: 0px;
+  }
+  .getIn-touch-button {
+    margin: 10px;
+    padding: 10px;
+  }
+  .buttons-container {
+    margin-left: -15px;
+  }
+}
+.playstore-text {
+  color: #fff;
+  background-color: red;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-top: -30px;
+}
+/* Carousel Container */
+/* Carousel Container */
+/* Carousel Container */
+.carousel-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+}.book-container-row{
+  display: flex;
+  flex-direction: column !important;
+}
+
+/* Carousel Track */
+.carousel-track {
+  display: flex;
+  animation: scroll 30s linear infinite !important; /* Adjusted speed to 30s for smoother loop */
+  width: max-content; /* Allow carousel track to expand based on content */
+}
+
+/* Testimonial Item Styling */
+.testimonial {
+  flex: 0 0 auto;
+  width: 14%; /* Default for large screens (7 slides) */
+  box-sizing: border-box;
+  background-color: #f6f5f8;
+  padding: 20px;
+  margin: 0 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Testimonial Name */
+.testimonial-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 0px;
+}
+
+/* Testimonial Title */
+.testimonial-title {
+  font-size: 1.2rem;
+  color: rgb(92, 90, 90);
+  margin-bottom: 15px;
+}
+
+/* Testimonial Description */
+.testimonial-description {
+  font-size: 1rem;
+  color: black;
+  line-height: 1.5;
+}
+
+/* Keyframe Animation for Smooth Scrolling */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%); /* This makes the loop run smoothly */
+  }
+}
+
+/* Responsive Adjustments */
+
+/* For Tablets or Larger Screens */
+@media (max-width: 1024px) {
+  .testimonial {
+    width: 20%; /* Adjust for tablets (5 slides) */
+  }
+}
+
+/* For Small Devices (Mobile) */
+@media (max-width: 480px) {
+  .testimonial {
+    width: 25%; /* Adjust for mobile devices (4 slides) */
+    margin: 0 5px; /* Adjust space between slides */
+    height: 300px;
+  }
+
+  /* Reduce font sizes for mobile */
+  .testimonial-name {
+    font-size: 1.2rem; /* Smaller name */
+  }
+
+  .testimonial-title {
+    font-size: 1rem; /* Smaller title */
+  }
+
+  .testimonial-description {
+    font-size: 0.9rem; /* Smaller description */
+  }
+
+  /* Ensure that the total width of all items is greater than 100% */
+  .carousel-slide {
+    display: flex;
+    width: 33.33%; /* Set width to 100% for mobile */
+  }
+
+  /* Adjust the scrolling animation for mobile */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-70%); /* Ensure full looping across all slides */
+    }
+  }
+}
+/* Additional Hover Effects */
+.book-details img:hover {
+  transform: scale(1.05);
+}
+
+.book-details h2:hover {
+  color: #0056b3;
+}
+
+.book-details .btn-warning:hover {
+  background-color: #ff8c00;
+}
+
+.book-details .btn-success:hover {
+  background-color: #12bb64;
+}

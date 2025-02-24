@@ -1,0 +1,69 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Ensure the app takes only available width on all screen sizes */
+.App {
+  width: 100%;
+  max-width: 100vw; /* Ensure it doesn't exceed the viewport width */
+  margin: 0 auto; /* Center it on the page */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Ensure the body takes the full height and width */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Ensure the router container is responsive */
+.RouterContainer {
+  width: 100%;
+  height: 100%;
+}
+
+/* Optional: To keep consistent padding on the sides */
+.container {
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.main-body-container{
+  margin-top: 10px;
+}

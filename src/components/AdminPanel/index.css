@@ -1,0 +1,173 @@
+.admin-panel-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    position: relative;
+    background-color: #e8eef5;
+    height: 100vh;
+    padding-top: 80px;
+    box-sizing: border-box; /* Ensure padding doesn't affect width/height */
+  }
+  
+  .heading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .admin-book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .admin-book-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* Ensure items wrap when needed */
+  }
+  
+  .admin-book-image {
+    width: 100px;
+    height: 150px;
+    background-size: cover;
+    margin-right: 20px;
+  }
+  
+  .admin-book-details {
+    flex-grow: 1;
+    padding-right: 20px;
+  }
+  
+  .admin-book-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .admin-book-actions button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .admin-book-actions button:hover {
+    background-color: #0056b3;
+  }
+  
+  .admin-plus-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .admin-book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 350px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-book-form input,
+  .admin-book-form textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .admin-book-form button {
+    padding: 8px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .admin-book-form button:hover {
+    background-color: #218838;
+  }
+  
+  /* Media Queries for Responsiveness */
+  
+  @media screen and (max-width: 768px) {
+    .admin-book-item {
+      flex-direction: column; /* Stack book image and details on small screens */
+      align-items: flex-start;
+    }
+  
+    .admin-book-image {
+      width: 80px; /* Adjust image size */
+      height: 120px;
+      margin-bottom: 10px; /* Add spacing between image and details */
+    }
+  
+    .admin-book-actions {
+      justify-content: space-between;
+      width: 100%;
+    }
+  
+    .admin-book-form {
+      width: 100%; /* Make form full width on smaller screens */
+      bottom: 20px; /* Adjust form position */
+    }
+  
+    .admin-plus-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      bottom: 10px; /* Adjust position for smaller screens */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .admin-book-item {
+      padding: 8px; /* Adjust padding for smaller screens */
+    }
+  
+    .admin-book-image {
+      width: 70px;
+      height: 100px;
+    }
+  
+    .admin-book-details {
+      padding-right: 10px;
+    }
+  
+    .admin-plus-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+    }
+  
+    .admin-book-form {
+      width: 90%; /* Make form almost full width on extra small screens */
+      padding: 15px;
+    }
+  }
+  

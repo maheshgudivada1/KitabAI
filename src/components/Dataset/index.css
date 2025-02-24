@@ -1,0 +1,358 @@
+.main-body-container {
+    display: flex;
+    width: 100%;
+  }
+  
+  
+  
+  .bc-main-heading {
+    font-size: 24px;
+  }
+  
+  .addnew-button {
+    margin: 10px 0;
+  }
+  
+  .folder-list {
+    padding: 10px;
+  }
+  
+  .folder-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .folder-header {
+    cursor: pointer;
+  }
+  
+  .folder-content {
+    margin-top: 10px;
+  }
+  
+  .top-folder-heading {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .folder-popup {
+    position: fixed;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+  
+  .addnew-input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 100%;
+  }
+  
+  .file-link {
+    background-color: transparent;
+    color: blue;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  /* Back Button Styling */
+  .back-button {
+    top: 20px;
+    left: 20px;
+    background-color: #FF5733; /* Bright color for attention */
+    color: white;
+    padding: 10px 20px; /* Larger padding for better appearance */
+    border-radius: 50px; /* Rounded corners for a modern look */
+    font-size: 16px; /* Slightly larger text */
+    font-weight: bold; /* Bold text */
+    border: none; /* Remove default border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    z-index: 100; /* Ensure it appears above other elements */
+  }
+  
+  .back-button:hover {
+    background-color: #C1351D; /* Darker shade on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+  }
+  
+  .back-button:active {
+    background-color: #9B2D1F; /* Even darker on click */
+    transform: translateY(1px); /* Pressed effect */
+  }
+  
+  .back-button:focus {
+    outline: none; /* Remove outline on focus */
+    box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.5); /* Add a glow effect when focused */
+  }
+  
+  /* Ensure this overrides other button styles */
+  button {
+    all: unset; /* Remove all default button styles */
+    font-family: inherit; /* Inherit font from parent */
+  }
+  
+  p{
+    color: white;
+  }
+  .folder-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 10px;
+  }
+  .top-folder-heading{
+    color: #ffffff;
+  }
+  h4{
+    color: white;
+  }
+  .file-item{
+    color: white;
+  }
+  .folder-file-heading{
+    color: #ffffff;
+  }
+  h3{
+    color: #ffffff;
+  }
+  .file-section {
+    position: relative;
+    margin: 20px;
+  }
+  
+  .add-file-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+  }
+  
+  .file-type-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    text-align: center;
+    width: 50%;
+  }
+  
+  .dropdown-item {
+    cursor: pointer;
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+  }
+  
+  .cancel-button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .file-item {
+    margin-top: 20px;
+  }
+  
+  .delete-button {
+    margin-left: 20px;
+  }
+  .file-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .add-file-button{
+    margin-right: 40px;
+  }
+  .folder-header{
+    display: flex;
+    justify-content: space-between;
+  }
+  .files-container{
+    display: flex;
+    flex-direction: column;
+  }
+  /* General container styles */
+  .files-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .folder-details {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .table-header {
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+  }
+  
+  .file-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    padding: 10px;
+  }
+  
+  .table-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black !important;
+    padding: 8px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .table-data:last-child {
+    border-right: none;
+  }
+  
+  .file-link {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .file-link:hover {
+    text-decoration: underline;
+  }
+  
+  .delete-button {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-button:hover {
+    background-color: #e53935;
+  }
+  .table-header{
+    font-size: 20px;
+    color: black;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  .table-data{
+    color: white;
+  }
+  .folder-row{
+    display: flex;
+    justify-content: space-between;
+  }
+  /* Folder List container */
+  .folder-list {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .folder-details {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .table-header {
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+  }
+  
+  .folder-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    padding: 10px;
+  }
+  
+  .table-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    cursor: pointer;
+    border-right: 1px solid #ddd;
+  }
+  
+  .table-data:last-child {
+    border-right: none;
+  }
+  
+  .delete-folder-button {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-folder-button:hover {
+    background-color: #e53935;
+  }
+  .add_new_file{
+    background-color: #99cadf;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 08px;
+    transition: background-color 0.3s;
+  }
+
+  .popup-files{
+    margin-top: 180px;
+  }

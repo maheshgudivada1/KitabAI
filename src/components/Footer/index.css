@@ -1,0 +1,139 @@
+/* Footer container */
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  padding: 40px 20px;
+  width: 100%;
+  
+  margin-top: 50px;
+  justify-content: space-between;
+  background-color: #f6f5f8; /* Light background */
+}
+
+/* Styling for each section in the footer */
+.footer-section {
+  flex: 1;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Specific styles for headings and content */
+.footer-section h2 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+/* Styling for the "About Us" section under Aishaala */
+.aishaala .about-us {
+  color: gray;
+  margin-top: 10px;
+}
+
+/* Styling for the office section */
+.office p {
+  margin-bottom: 10px;
+}
+
+/* Styling for the quick links section */
+.quick-links p {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Styling for the legal stuff section */
+.legal-stuff p {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 1200px) {
+  .footer-container {
+    flex-direction: row; /* Stack sections vertically on medium-sized screens */
+  }
+
+  .footer-section {
+    flex: none; /* Allow sections to be stacked without taking full width */
+    margin-bottom: 20px; /* Add some space between sections */
+  }
+  .office{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 20px 10px; /* Further reduce padding on very small screens */
+    justify-content: flex-start;
+    align-items: start;
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .footer-section h2 {
+    font-size: 1.25rem; /* Reduce font size for headings */
+  }
+
+  .footer-section {
+    text-align: center; /* Center-align text on smaller screens */
+  }
+
+  .footer-section p {
+    font-size: 0.9rem; /* Adjust font size for content */
+  }
+
+  .aishaala .about-us {
+    font-size: 0.85rem; /* Reduce font size for "About Us" text */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 20px 10px; /* Further reduce padding on very small screens */
+    justify-content: flex-start;
+    align-items: start;
+    flex-direction: column;
+    text-align: left;
+  }
+  .office{
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-section h2 {
+    font-size: 1.1rem; /* Further reduce heading font size */
+  }
+
+  .footer-section p {
+    font-size: 0.85rem; /* Further adjust content font size */
+  }
+
+  .aishaala .about-us {
+    font-size: 0.75rem; /* Further reduce font size for "About Us" text */
+  }
+  .footer-section{
+    justify-content: flex-start;
+    align-items: start;
+    text-align: left;
+
+  }
+}
+.links {
+  text-decoration: none !important;
+  cursor: pointer;
+  color: black;
+}
+
+.links:hover,
+.links:focus {
+  text-decoration: none !important;
+
+}
+p{
+  color: black !important;
+}
