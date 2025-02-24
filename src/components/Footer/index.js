@@ -137,7 +137,7 @@ const Footer = () => {
                         <div style={{ width: '300px', height: '150px' }} className="flex flex-col justify-center p-6 text-center bg-gray-800 text-white w-[90%] max-w-md h-auto rounded-lg shadow-lg">
                             <div className="flex flex-col items-center mt-4">
 
-                                <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
+                                <GoogleOAuthProvider clientId="911721135973-kigmnep4rtnio28bjgg6arg1t9itiftj.apps.googleusercontent.com">
                                     <GoogleLogin
                                         onSuccess={async (credentialResponse) => {
                                             Cookies.set("userId", credentialResponse.credential);
