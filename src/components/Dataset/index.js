@@ -95,7 +95,7 @@ const DatasetApp = () => {
 
     // API call to upload file data
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/uploadfile`, {
+      const response = await axios.post(`https://kitabai-books.onrender.com/uploadfile`, {
         folderName: folder.folderName,
         fileDetails,
       });
@@ -123,7 +123,7 @@ const DatasetApp = () => {
   // Fetch folders and files
   const getFoldersAndFiles = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/list-folders-files`);
+      const response = await axios.get(`https://kitabai-books.onrender.com/list-folders-files`);
       if (response.data.success) {
         setFolders(response.data.folders || []); // Ensure folders is an array
       } else {
@@ -161,7 +161,7 @@ const DatasetApp = () => {
 
     // API call to upload folder metadata to S3 and MongoDB
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/uploadfolder`, {
+      const response = await axios.post(`https://kitabai-books.onrender.com/uploadfolder`, {
         folderName: newFolder.folderName,
         category: newFolder.folderCategory,
         folderType: newFolder.folderType,  // Include folderType in the request
@@ -195,7 +195,7 @@ const DatasetApp = () => {
   // Function to fetch updated folders list from MongoDB
   const fetchFolders = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/folders`);
+      const response = await axios.get(`https://kitabai-books.onrender.com/folders`);
       if (response.data.success) {
         return response.data.folders;
       } else {
@@ -236,7 +236,7 @@ const DatasetApp = () => {
 
     try {
       // Get a pre-signed URL from the server for the S3 upload
-      const presignedResponse = await axios.post(`${process.env.REACT_APP_API_URL}/getpresignedurl`, {
+      const presignedResponse = await axios.post(`https://kitabai-books.onrender.com/getpresignedurl`, {
         folderName: folder.folderName,
         fileName: file.name,
       });
@@ -253,7 +253,7 @@ const DatasetApp = () => {
         const fileUrl = presignedResponse.data.url.split('?')[0]; // Remove query params to get the direct URL
 
         // Save file metadata to MongoDB
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/uploadfile`, {
+        const response = await axios.post(`https://kitabai-books.onrender.com/uploadfile`, {
           folderName: folder.folderName,
           fileDetails,
           fileUrl,
@@ -307,7 +307,7 @@ const DatasetApp = () => {
     console.log(`File clicked: ${folderName} / ${fileName}`);
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/getpresignedurl`, {
+      const response = await axios.post(`https://kitabai-books.onrender.com/getpresignedurl`, {
         folderName,
         fileName,
       });
@@ -340,7 +340,7 @@ const DatasetApp = () => {
   const handleDeleteFolder = async (folderId, folderName) => {
     try {
       // Call the backend API to delete the folder
-      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/deletefolder`, {
+      const response = await axios.delete(`https://kitabai-books.onrender.com/deletefolder`, {
         params: { folderId }
       });
 
@@ -363,7 +363,7 @@ const DatasetApp = () => {
       console.log('Received request to delete:', folderId, fileId, fileName);
 
       // Send the DELETE request with query parameters
-      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/deletefile`, {
+      const response = await axios.delete(`https://kitabai-books.onrender.com/deletefile`, {
         params: {
           folderId,
           fileId,

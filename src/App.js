@@ -12,7 +12,7 @@ import BookStore from './components/AdminBookStore';
 import DatasetApp from './components/Dataset';
 import VoiceTranscriber from './components/VoiceTranscriber';
 import ChatBot from './components/ChatBot';
-const clientId = "818623730310-suqadla5gshddsh7iipagqihufgrq8s9.apps.googleusercontent.com";
+const clientId = "911721135973-kigmnep4rtnio28bjgg6arg1t9itiftj.apps.googleusercontent.com";
 
 function App() {
   useEffect(() => {
@@ -36,7 +36,6 @@ function App() {
           <Route path='/admin-book-store' element={<BookStore />} />
           <Route path='/admin-dataset' element={<DatasetApp />} />
           <Route path="/chatbot" element={<ChatBot/>}/>
-
         </Routes>
       </ConditionalLayout>
     </GoogleOAuthProvider>

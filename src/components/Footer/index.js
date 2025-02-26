@@ -24,7 +24,7 @@ const Footer = () => {
                 },
                 body: JSON.stringify({ email })
             }
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/checkuser`, options);
+            const response = await fetch(`https://kitabai-books.onrender.com/checkuser`, options);
             const data = await response.json();
             console.log(data);
             if (data.exist === true && data.regstatus === "approved") {
@@ -54,7 +54,7 @@ const Footer = () => {
                 },
                 body: JSON.stringify({ email })
             }
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/checkadmin`, options);
+            const response = await fetch(`https://kitabai-books.onrender.com/checkadmin`, options);
             const data = await response.json();
             console.log(data);
 
@@ -90,7 +90,7 @@ const Footer = () => {
                 },
                 body: JSON.stringify({ email })
             }
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/checksubadmin`, options);
+            const response = await fetch(`https://kitabai-books.onrender.com/checksubadmin`, options);
             const data = await response.json();
             console.log(data);
             if (data.exist === true) {

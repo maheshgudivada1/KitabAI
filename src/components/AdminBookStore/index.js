@@ -43,7 +43,7 @@ const Feedback = () => {
     setSidebarOpen(!isSidebarOpen);
   };
 
-  const apiUrl = "http://localhost:3001/getbooks";
+  const apiUrl = "https://kitabai-books.onrender.com/getbooks";
 
   const categories = [
     "Art & Design",
@@ -93,7 +93,7 @@ const Feedback = () => {
     e.preventDefault();
     try {
       const presignedUrlResponse = await axios.post(
-        `${process.env.REACT_APP_API_URL}/coverpagepresignedurl`,
+        `https://kitabai-books.onrender.com/coverpagepresignedurl`,
         {
           folderName: 'Books',
           fileName: bookDetails.title,
@@ -105,7 +105,7 @@ const Feedback = () => {
       });
 
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/uploadbooks`,
+        `$https://kitabai-books.onrender.com/uploadbooks`,
         {
           ...bookDetails,
           coverPageUrl: presignedUrl.split('?')[0],
@@ -132,7 +132,7 @@ const Feedback = () => {
       let updatedBookDetails = { ...bookDetails };
 
       if (coverPageFile) {
-        const presignedUrlResponse = await axios.post(`${process.env.REACT_APP_API_URL}/coverpagepresignedurl`, {
+        const presignedUrlResponse = await axios.post(`https://kitabai-books.onrender.com/coverpagepresignedurl`, {
           folderName: 'Books',
           fileName: bookDetails.title,
         });
@@ -152,7 +152,7 @@ const Feedback = () => {
       }
 
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/updatebook/${bookDetails._id}`,
+        `$https://kitabai-books.onrender.com/updatebook/${bookDetails._id}`,
         updatedBookDetails
       );
 
@@ -170,7 +170,7 @@ const Feedback = () => {
 
   const fetchBooks = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/getbooks`);
+      const response = await fetch('https://kitabai-books.onrender.com/getbooks');
       const data = await response.json();
       setOriginalBooks(data);
       setBooks(data);
@@ -215,7 +215,7 @@ const Feedback = () => {
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
-        `${process.env.REACT_APP_API_URL}/deletebook/${bookToDelete._id}`
+        `https://kitabai-books.onrender.com/deletebook/${bookToDelete._id}`
       );
 
       if (response.status === 200) {
@@ -279,7 +279,7 @@ const Feedback = () => {
 
   const handleFileUpload = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/addFilesToBook`, {
+      const response = await fetch(`https://kitabai-books.onrender.com/addFilesToBook`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
