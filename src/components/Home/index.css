@@ -886,3 +886,9 @@ h4 {
 .book-details .btn-success:hover {
   background-color: #12bb64;
 }
+
+@media (max-width: 768px) {
+  img {
+    height: 300px !important; /* Reduced height for mobile devices */
+  }
+}

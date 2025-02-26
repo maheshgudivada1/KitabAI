@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleLogin, googleLogout } from '@react-oauth/google';
- import { FaMicrophone } from 'react-icons/fa'; // Using react-icons for the mic icon
+import { FaMicrophone } from 'react-icons/fa'; // Using react-icons for the mic icon
 import './index.css'; // Import the CSS file
 import Header from '../Header';
 import CarouselControlled from '../Carousel';
@@ -473,18 +473,22 @@ const Home = () => {
             {filterBooks.map((book, index) => (
               <div
                 key={book.id}
-                className={`col-12 mb-4 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}
-                style={{ display: 'flex', alignItems: 'center', transition: 'all 0.3s ease' }}
+                className={`col-12 mb-4 ${index % 2 === 0 ? '' : 'flex-row-reverse'} d-flex flex-wrap`}
+                style={{ alignItems: 'center', transition: 'all 0.3s ease' }}
               >
-                <div className="col-md-4">
+                <div className="col-12 col-md-4 mb-3 mb-md-0">
                   <img
                     src={book.imageUrl}
                     alt={book.title}
                     className="img-fluid rounded"
-                    style={{ width: '100%', height: '450px', transition: 'transform 0.3s ease' }}
+                    style={{
+                      width: '100%',
+                      height: '450px',
+                      transition: 'transform 0.3s ease',
+                    }}
                   />
                 </div>
-                <div className="col-md-8" style={{ padding: '0 40px' }}>
+                <div className="col-12 col-md-8" style={{ padding: '0 20px' }}>
                   <h2 className="mb-3" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#333', transition: 'color 0.3s ease' }}>
                     {book.title}
                   </h2>
@@ -498,11 +502,11 @@ const Home = () => {
                     {book.description}
                   </p>
                   <div className="d-flex justify-content-center gap-3">
-                    <button className="btn btn-warning" style={{ transition: 'background-color 0.3s ease' }}>
+                    <button className="btn btn-warning talk-button" style={{ transition: 'background-color 0.3s ease' }}>
                       <FaMicrophone />
                       <span className="ms-2">Click to Talk</span>
                     </button>
-                    <button className="btn btn-success" style={{ transition: 'background-color 0.3s ease' }}>
+                    <button className="btn btn-success chat-button" style={{ transition: 'background-color 0.3s ease' }}>
                       <HiOutlineChatBubbleLeftEllipsis />
                       <span className="ms-2">Click to Chat</span>
                     </button>
@@ -512,6 +516,9 @@ const Home = () => {
             ))}
           </div>
         </div>
+
+
+
 
 
 
