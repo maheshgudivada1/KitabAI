@@ -25,7 +25,7 @@ const VoiceTranscriber = () => {
     // Fetching book details using the ISBN
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/getbookrawdata/${isbn}`);
+        const response = await axios.get(`https://kitabai-books.onrender.com/getbookrawdata/${isbn}`);
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
