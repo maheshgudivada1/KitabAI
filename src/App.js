@@ -12,7 +12,7 @@ import BookStore from './components/AdminBookStore';
 import DatasetApp from './components/Dataset';
 import VoiceTranscriber from './components/VoiceTranscriber';
 import ChatBot from './components/ChatBot';
-const clientId = "911721135973-kigmnep4rtnio28bjgg6arg1t9itiftj.apps.googleusercontent.com";
+const clientId = "126357156450-tqno9kgndoft3nnbm56of9k9bj8sbrdc.apps.googleusercontent.com";
 
 function App() {
   useEffect(() => {

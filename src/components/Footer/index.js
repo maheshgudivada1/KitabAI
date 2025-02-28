@@ -1,15 +1,12 @@
 import React from 'react';
 import './index.css'; // Assuming you have a CSS file for styling
-// import TradeMark from '../../assets/img10.png'
 import Popup from 'reactjs-popup';
 import Cookies from 'js-cookie';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../Context/userContext'
+import { useUser } from '../Context/userContext';
 import CryptoJS from 'crypto-js';
-
-
 
 const Footer = () => {
     const navigate = useNavigate();
@@ -23,27 +20,25 @@ const Footer = () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({ email })
-            }
-            const response = await fetch(`https://kitabai-books.onrender.com/checkuser`, options);
+            };
+            const response = await fetch(`http://localhost:3001/checkuser`, options);
             const data = await response.json();
-            console.log(data);
+            console.log("Check User Response:", data);
             if (data.exist === true && data.regstatus === "approved") {
                 return true;
-            }
-            else if (data.exist === true && data.regstatus === "pending") {
+            } else if (data.exist === true && data.regstatus === "pending") {
                 return "pending";
-            }
-            else if (data.exist === true && data.regstatus === "rejected") {
+            } else if (data.exist === true && data.regstatus === "rejected") {
                 return "rejected";
-            }
-            else
+            } else {
                 return false;
+            }
+        } catch (Err) {
+            console.error(`Error checking user: ${Err}`);
+            alert(`Error checking user: ${Err.message}`);
+            return false;
         }
-        catch (Err) {
-            console.log(`Error Occurred : ${Err}`);
-        }
-    }
-
+    };
 
     const checkAdmin = async (email) => {
         try {
@@ -53,10 +48,10 @@ const Footer = () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({ email })
-            }
-            const response = await fetch(`https://kitabai-books.onrender.com/checkadmin`, options);
+            };
+            const response = await fetch(`http://localhost:3001/checkadmin`, options);
             const data = await response.json();
-            console.log(data);
+            console.log("Check Admin Response:", data);
 
             if (data.exist === true) {
                 loginUser(data.user);
@@ -72,14 +67,15 @@ const Footer = () => {
                 ]), process.env.REACT_APP_SECRET_KEY).toString();
                 localStorage.setItem(process.env.REACT_APP_ENCRYPTED_KEY, encryptedData);
                 return true;
-            }
-            else
+            } else {
                 return false;
+            }
+        } catch (Err) {
+            console.error(`Error checking admin: ${Err}`);
+            alert(`Error checking admin: ${Err.message}`);
+            return false;
         }
-        catch (Err) {
-            console.log(`Error Occurred : ${Err}`);
-        }
-    }
+    };
 
     const checkSubAdmin = async (email) => {
         try {
@@ -89,23 +85,52 @@ const Footer = () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({ email })
-            }
-            const response = await fetch(`https://kitabai-books.onrender.com/checksubadmin`, options);
+            };
+            const response = await fetch(`http://localhost:3001/checksubadmin`, options);
             const data = await response.json();
-            console.log(data);
+            console.log("Check SubAdmin Response:", data);
+
             if (data.exist === true) {
                 loginUser(data.user);
                 const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(data.user.accessItems), process.env.REACT_APP_SECRET_KEY).toString();
                 localStorage.setItem(process.env.REACT_APP_ENCRYPTED_KEY, encryptedData);
                 return true;
-            }
-            else
+            } else {
                 return false;
+            }
+        } catch (Err) {
+            console.error(`Error checking sub-admin: ${Err}`);
+            alert(`Error checking sub-admin: ${Err.message}`);
+            return false;
         }
-        catch (Err) {
-            console.log(`Error Occurred : ${Err}`);
+    };
+
+    const handleGoogleLogin = async (credentialResponse) => {
+        try {
+            const { email } = jwtDecode(credentialResponse.credential);
+            console.log("Decoded Email:", email);
+            const userExists = await checkUser(email);
+
+            if (userExists === true) {
+                const isAdmin = await checkAdmin(email);
+                const isSubAdmin = await checkSubAdmin(email);
+
+                if (isAdmin || isSubAdmin) {
+                    const token = credentialResponse.credential;
+                    Cookies.set("jwtToken", token, { expires: 7 }); // Set token to expire in 7 days
+                    navigate("/dashboard", { replace: true });
+                } else {
+                    alert("You are not authorized to access the content");
+                }
+            } else {
+                alert("User does not exist or is not approved");
+            }
+        } catch (error) {
+            console.error("Login failed:", error);
+            alert("Login failed");
         }
-    }
+    };
+
     return (
         <footer className="footer-container">
             {/* KitabAI Container */}
@@ -136,25 +161,15 @@ const Footer = () => {
                     {close => (
                         <div style={{ width: '300px', height: '150px' }} className="flex flex-col justify-center p-6 text-center bg-gray-800 text-white w-[90%] max-w-md h-auto rounded-lg shadow-lg">
                             <div className="flex flex-col items-center mt-4">
-
-                                <GoogleOAuthProvider clientId="911721135973-kigmnep4rtnio28bjgg6arg1t9itiftj.apps.googleusercontent.com">
+                                <GoogleOAuthProvider clientId="126357156450-tqno9kgndoft3nnbm56of9k9bj8sbrdc.apps.googleusercontent.com">
                                     <GoogleLogin
-                                        onSuccess={async (credentialResponse) => {
-                                            Cookies.set("userId", credentialResponse.credential);
-                                            const { email } = jwtDecode(credentialResponse.credential);
-                                            const res1 = await checkAdmin(email);
-                                            const res2 = await checkSubAdmin(email);
-                                            if (res1 === true || res2 === true)
-                                                navigate("/dashboard", { replace: true });
-                                            else
-                                                alert("You are not authorized to access the content");
-                                        }}
+                                        onSuccess={handleGoogleLogin}
                                         onError={() => {
                                             console.log("Login Failed");
+                                            alert("Login Failed");
                                         }}
                                     />
                                 </GoogleOAuthProvider>
-
                             </div>
                         </div>
                     )}
@@ -174,4 +189,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
