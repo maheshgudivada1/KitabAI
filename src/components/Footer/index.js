@@ -21,7 +21,7 @@ const Footer = () => {
         },
         body: JSON.stringify({ email })
       };
-      const response = await fetch(`http://localhost:3001/checkadmin`, options);
+      const response = await fetch(`https://kitabai-books.onrender.com/checkadmin`, options);
       const data = await response.json();
       console.log("Admin Check Response:", data);
 
@@ -48,7 +48,7 @@ const Footer = () => {
         },
         body: JSON.stringify({ email })
       };
-      const response = await fetch(`http://localhost:3001/checksubadmin`, options);
+      const response = await fetch(`https://kitabai-books.onrender.com/checksubadmin`, options);
       const data = await response.json();
       console.log("SubAdmin Check Response:", data);
       if (data.exist === true) {
