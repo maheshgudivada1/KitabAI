@@ -2,6 +2,7 @@ import "./index.css";
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FaBars, FaTimes } from "react-icons/fa";
+import AdminDashboard from "../AdminDashboard"
 
 const Feedback = () => {
   const [books, setBooks] = useState([]);
@@ -322,6 +323,7 @@ const Feedback = () => {
 
   return (
     <div className="app-container">
+      {isSidebarOpen?<AdminDashboard/>:null}
       <aside className="categorys">
         <button onClick={toggleSidebar} className="hamburger-button">
           {isSidebarOpen ? <FaTimes /> : <FaBars />}

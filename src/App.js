@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
-import AdminPanel from './components/AdminPanel';
 import { gapi } from 'gapi-script';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import './App.css';
@@ -12,6 +12,8 @@ import BookStore from './components/AdminBookStore';
 import DatasetApp from './components/Dataset';
 import VoiceTranscriber from './components/VoiceTranscriber';
 import ChatBot from './components/ChatBot';
+import ProtectedRoute from './components/ProtectedRoute';
+import { UserProvider } from './Context/UserContext';
 const clientId = "126357156450-tqno9kgndoft3nnbm56of9k9bj8sbrdc.apps.googleusercontent.com";
 
 function App() {
@@ -27,17 +29,21 @@ function App() {
 
   return (
     <GoogleOAuthProvider clientId={clientId}>
-      <ConditionalLayout>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path="/voice-transcriber" element={<VoiceTranscriber />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path='/admin-book-store' element={<BookStore />} />
-          <Route path='/admin-dataset' element={<DatasetApp />} />
-          <Route path="/chatbot" element={<ChatBot/>}/>
-        </Routes>
-      </ConditionalLayout>
+      <UserProvider>
+        <ConditionalLayout>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path="/voice-transcriber" element={<VoiceTranscriber />} />
+            <Route path="/about" element={<About />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path='/admin-book-store' element={<BookStore />} />
+              <Route path='/admin-dataset' element={<DatasetApp />} />
+            </Route>
+            <Route path="/chatbot" element={<ChatBot />} />
+          </Routes>
+        </ConditionalLayout>
+      </UserProvider>
     </GoogleOAuthProvider>
   );
 }
